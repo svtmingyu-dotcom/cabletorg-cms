@@ -8,13 +8,12 @@ if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
 
 $id = (int)$_GET['id'];
 
-// Получаем товар
+// получаем товар
 $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->execute([$id]);
 $product = $stmt->fetch();
 if (!$product) die('Товар не найден');
 
-// ===== ИЗОБРАЖЕНИЯ =====
 $imgDir = __DIR__ . '/assets/images/';
 $imgUrl = 'assets/images/';
 
@@ -126,7 +125,6 @@ showSlide(index);
 nextBtn.onclick = () => { index = (index + 1) % slides.length; showSlide(index); };
 prevBtn.onclick = () => { index = (index - 1 + slides.length) % slides.length; showSlide(index); };
 
-// ===== CART =====
 function getCart() {
     return JSON.parse(localStorage.getItem('cart')) || [];
 }
