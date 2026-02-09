@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost'; // если локально через XAMPP / MAMP
 $db   = 'cabletorg';
-$user = 'root';      // твой пользователь MySQL
+$user = 'root';      // пользователь MySQL
 $pass = '';          // пароль MySQL
 $charset = 'utf8mb4';
 
