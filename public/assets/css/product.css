@@ -1,0 +1,137 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0 20px;
+    color: #333;
+}
+
+header h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #222;
+}
+
+header nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.product-images {
+    flex: 1 1 400px;
+    max-width: 500px;
+    position: relative;
+}
+
+.product-images img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+}
+
+.slider button.prev,
+.slider button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 50%;
+}
+
+.slider button.prev { left: 10px; }
+.slider button.next { right: 10px; }
+
+.product-details {
+    flex: 1 1 300px;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-details h3 {
+    margin-top: 20px;
+    color: #222;
+}
+
+.product-details p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.product-details .in-stock {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.product-details .out-of-stock {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.product-details button {
+    margin-top: 15px;
+    padding: 10px 16px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.product-details button:hover {
+    background-color: #004999;
+}
+
+.product-details button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.specs-table td {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 800px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-images, .product-details {
+        max-width: 90%;
+    }
+}

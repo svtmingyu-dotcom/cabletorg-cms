@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+ul li a {
+    display: block;
+    padding: 12px 20px;
+    background-color: #fff;
+    color: #0066cc;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    font-weight: 500;
+}
+
+ul li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    background-color: #e6f0ff;
+}
+
+ul a[href$="index.php"] {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    ul {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}
+a.catalog-button {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #0066cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    font-weight: 500;
+    margin-top: 20px;
+}
+a.catalog-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    background-color: #004999;
+}

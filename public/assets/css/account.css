@@ -1,0 +1,149 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #222;
+}
+
+header {
+    padding: 20px 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+header nav {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.greeting {
+    text-align: center;
+    font-size: 1.2em;
+    color: #444;
+}
+
+.greeting span {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+/* заказы */
+.orders {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.no-orders {
+    text-align: center;
+    color: #777;
+    font-size: 1.1em;
+    margin-top: 30px;
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* карточки заказа */
+.order-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-status {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: fit-content;
+    color: #fff;
+}
+
+.order-status.completed {
+    background-color: #28a745;
+}
+
+.order-status.pending {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.order-status.cancelled {
+    background-color: #dc3545;
+}
+
+.order-total {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+.order-items ul {
+    list-style: disc inside;
+    padding-left: 0;
+    margin: 5px 0 15px 0;
+}
+
+.order-items li {
+    margin-bottom: 4px;
+}
+
+.repeat-order {
+    padding: 8px 15px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.repeat-order:hover {
+    background-color: #004999;
+}
+
+@media (max-width: 600px) {
+    .orders-grid {
+        grid-template-columns: 1fr;
+    }
+}

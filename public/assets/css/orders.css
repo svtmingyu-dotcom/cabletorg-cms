@@ -1,0 +1,119 @@
+/* ====== Базовые настройки ====== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #222;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #004999;
+}
+
+/* ====== Кнопка "Назад" и экспорт ====== */
+a.back-button,
+a.export-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #0066cc;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+a.back-button:hover,
+a.export-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    background-color: #004999;
+}
+
+/* ====== Таблица заказов ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 50px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+th {
+    background-color: #f0f2f5;
+    color: #222;
+}
+
+tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ====== Статус заказа ====== */
+select[name="status"] {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select[name="status"]:hover {
+    border-color: #0066cc;
+    box-shadow: 0 2px 6px rgba(0,102,204,0.2);
+}
+
+/* ====== Список товаров в заказе ====== */
+td ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+td ul li {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* ====== Адаптив ====== */
+@media (max-width: 900px) {
+    table, th, td {
+        display: block;
+    }
+    th, td {
+        padding: 10px;
+    }
+    tr {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    td ul {
+        padding-left: 15px;
+    }
+}
