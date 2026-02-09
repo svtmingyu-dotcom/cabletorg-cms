@@ -10,7 +10,7 @@ if (empty($_SESSION['user_id']) || ($_SESSION['is_admin'] ?? 0) != 1) {
 $uploadDir = __DIR__ . '/../public/assets/images/';
 $categories = $pdo->query("SELECT * FROM categories ORDER BY sort_order")->fetchAll();
 
-// ---------- Удаление фото ----------
+// удаление фото
 if (!empty($_GET['delete_image'])) {
     $imgId = (int)$_GET['delete_image'];
     $stmt = $pdo->prepare("SELECT filename, product_id FROM product_images WHERE id=?");
@@ -24,7 +24,7 @@ if (!empty($_GET['delete_image'])) {
     }
 }
 
-// ---------- Удаление основного фото ----------
+// удаление основного фото
 if (!empty($_GET['delete_main_image'])) {
     $productId = (int)$_GET['delete_main_image'];
     $stmt = $pdo->prepare("SELECT image FROM products WHERE id=?");
@@ -38,7 +38,7 @@ if (!empty($_GET['delete_main_image'])) {
     }
 }
 
-// ---------- Редактирование ----------
+// редактирование
 $editing = null;
 $additionalImages = [];
 if (!empty($_GET['edit_id'])) {
@@ -57,7 +57,7 @@ if (!empty($_GET['edit_id'])) {
     }
 }
 
-// ---------- Сохранение ----------
+// сохранение
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
     $name = trim($_POST['name'] ?? '');
@@ -94,14 +94,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $pdo->lastInsertId();
     }
 
-    // Загрузка основного фото
+    // загрузка основного фото
     if (!empty($_FILES['main_image']['tmp_name'])) {
         $mainName = "product_{$id}.jpg";
         move_uploaded_file($_FILES['main_image']['tmp_name'], $uploadDir . $mainName);
         $pdo->prepare("UPDATE products SET image=? WHERE id=?")->execute([$mainName, $id]);
     }
 
-    // Загрузка дополнительных фото
+    // загрузка дополнительных фото
     if (!empty($_FILES['images']['name'][0])) {
         foreach ($_FILES['images']['name'] as $index => $nameFile) {
             if ($_FILES['images']['error'][$index] === UPLOAD_ERR_OK &&
@@ -117,9 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// ---------- Удаление товара ----------
+// удаление товара
 if (!empty($_GET['delete_id'])) {
-    // сначала удаляем все доп. фото
     $stmt = $pdo->prepare("SELECT filename FROM product_images WHERE product_id=?");
     $stmt->execute([$_GET['delete_id']]);
     foreach ($stmt->fetchAll(PDO::FETCH_COLUMN) as $f) {
@@ -127,13 +126,11 @@ if (!empty($_GET['delete_id'])) {
     }
     $pdo->prepare("DELETE FROM product_images WHERE product_id=?")->execute([$_GET['delete_id']]);
 
-    // удаляем основное фото
     $stmt = $pdo->prepare("SELECT image FROM products WHERE id=?");
     $stmt->execute([$_GET['delete_id']]);
     $img = $stmt->fetchColumn();
     if ($img) @unlink($uploadDir . $img);
 
-    // удаляем сам товар
     $stmt = $pdo->prepare("DELETE FROM products WHERE id=?");
     $stmt->execute([$_GET['delete_id']]);
 
@@ -141,7 +138,7 @@ if (!empty($_GET['delete_id'])) {
     exit;
 }
 
-// ---------- Список товаров ----------
+// список товаров
 $products = $pdo->query("
     SELECT p.*, c.name AS category_name
     FROM products p
