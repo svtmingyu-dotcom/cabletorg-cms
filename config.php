@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost'; // если локально через XAMPP / MAMP
+$host = 'localhost'; // если локально через XAMPP 
 $db   = 'cabletorg';
 $user = 'root';      // пользователь MySQL
 $pass = '';          // пароль MySQL
